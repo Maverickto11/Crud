@@ -1,0 +1,20 @@
+
+.logo-img {
+    max-height: 5%;
+    max-width: 5%;
+    width: 5%;
+    height: 5%;
+}
+/* Estilos personalizados para la barra de navegación con fondo oscuro */
+.navbar-dark {
+    background-color: #343a40; /* Cambia el color de fondo a un tono oscuro */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: lightslategrey; /* Cambia el color del texto de las opciones a blanco */
+    transition: color 0.3s; /* Agrega transición suave al pasar el mouse */
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffffff; /* Cambia el color al pasar el mouse a un color más claro */
+}

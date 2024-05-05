@@ -1,0 +1,39 @@
+<h2>Lista Estudiantes</h2>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let estudiante of estudiantes">
+            <td>{{estudiante.nombre}}</td>
+            <td>{{estudiante.apellido}}</td>
+            <td>{{estudiante.email}}</td>
+            <td>
+                <!-- Botón de editar -->
+
+
+                   <!--
+                    <button class="btn btn-primary" (click)="editarEstudiante(estudiante)">
+                    <i class="fas fa-edit"></i></button>
+                   --> 
+                <button class="btn btn-primary" (click)="editarEstudiante(estudiante)">
+                    <i class="fas fa-edit"></i>
+                </button>
+                
+            </td>
+
+            <td>
+                <!-- Botón de eliminar -->
+                <button class="btn btn-danger" (click)="eliminarEstudiante(estudiante)">
+                    <i class="fas fa-trash"></i></button> 
+            </td>
+
+        </tr>
+    </tbody>
+</table>

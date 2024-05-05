@@ -1,0 +1,41 @@
+<!-- student-registration.component.html -->
+<div class="container">
+    <h2>Formulario de Registro de Estudiantes</h2>
+    <form (ngSubmit) = "onSubmit()" class="needs-validation" novalidate>
+      <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" class="form-control" id="nombre" 
+        [(ngModel)] = estudiante.nombre
+        name="nombre">
+        <div class="invalid-feedback">  
+          Por favor ingresa el nombre.
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Apellido:</label>
+        <input type="text" class="form-control" id="apellido" 
+        [(ngModel)] = estudiante.apellido
+        name="apellido">
+        <div class="invalid-feedback">
+          Por favor ingresa el apellido.
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Correo Electrónico:</label>
+        <input type="email" class="form-control" id="correo" 
+        [(ngModel)] = estudiante.email
+        name="correo">
+        <div class="invalid-feedback">
+          Por favor ingresa un correo válido.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+    <div *ngIf= "registroExitoso">
+      <p>¡Registro exitoso!</p>
+    </div>
+</div>
+  
+
+
+
