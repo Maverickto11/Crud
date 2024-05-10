@@ -8,8 +8,8 @@ import { Estudiante } from './estudiante';
 })
 export class EstudianteService {
   //Lista de Estudiante del Backend
-  private ListaURL= "http://localhost:8080/api/v1/Alumno";
-  private iDURL= "http://localhost:8080/api/v1";
+  private ListaURL= "https://crud-backend-d8q9.onrender.com/api/v1/Alumno";
+  private iDURL= "https://crud-backend-d8q9.onrender.com/api/v1";
 
   constructor(private httpEstud : HttpClient) { }
 

@@ -15,8 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path : 'estudiantes',component:ListaEstudianteComponent},
+  {path : 'registrar-alumno',component:RegistrarAlumnoComponent},
   {path : '', redirectTo:'estudiantes', pathMatch:'full'},
-  {path : 'registrar-alumno',component:RegistrarAlumnoComponent}
 ];
 
 @NgModule({
