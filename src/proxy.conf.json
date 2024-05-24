@@ -1,0 +1,11 @@
+{
+    "/api": {
+      "target": "https://crud-backend-2ohs.onrender.com",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": "/api"
+      }
+    }
+  }
+  
