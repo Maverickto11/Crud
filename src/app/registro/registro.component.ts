@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { CommonModule } from '@angular/common';
-import { Alumno } from '../alumno.model';
+import { Estudiante } from '../Estudiante.model';
 import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
@@ -13,7 +13,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class RegistroComponent {
 
-  nuevoEstudiante: Alumno = { id: 0, nombre: '', apellido: '', email: '' };
+  nuevoEstudiante: Estudiante = { id: 0, nombre: '', apellido: '', email: '' };
 
   constructor(private api: ApiService) { }
 

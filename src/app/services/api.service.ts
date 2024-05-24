@@ -1,36 +1,49 @@
-import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, forkJoin, map, throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { environment } from '../environment';
-import { Alumno } from '../alumno.model';
+import { Estudiante } from '../Estudiante.model';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+  private baseUrl: string = environment.url;
 
-  envioron: string = environment.url;
-  envioron2: string = environment.urls;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  
-  getProducts() {
-    return this.http.get(`${this.envioron}/Alumno`).pipe(
-        catchError((error: HttpErrorResponse) => {
-            let errorMessage = 'Unknown error!';
-            if (error.error instanceof ErrorEvent) {
-                // Client-side or network error
-                errorMessage = `Client-side error: ${error.error.message}`;
-            } else {
-                // Backend error
-                errorMessage = `Server-side error: ${error.status} ${error.message}`;
-            }
-            console.error(`Error fetching products from ${environment.url}/Alumno:`, errorMessage);
-            return throwError(() => new Error(errorMessage));
-        })
+  getProducts(): Observable<Estudiante[]> {
+    return this.http.get<Estudiante[]>(`${this.baseUrl}/api/v1/Alumno`).pipe(
+      map(response => {
+        console.log('Respuesta recibida:', response);
+        return response;
+      }),
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = '¡Error desconocido!';
+        if (error.error instanceof ErrorEvent) {
+          errorMessage = `Error del lado del cliente: ${error.error.message}`;
+        } else {
+          errorMessage = `Error del lado del servidor: ${error.status} ${error.message}`;
+        }
+        console.error(`Error al obtener productos desde ${this.baseUrl}/api/v1`, errorMessage);
+        return throwError(() => new Error(errorMessage));
+      })
     );
-}
+  }
 
-  registrarEstudiante(estudiante: Alumno): Observable<Alumno> {
-    return this.http.post<Alumno>(`${this.envioron2}`, estudiante);
+  registrarEstudiante(estudiante: Estudiante): Observable<Estudiante> {
+    return this.http.post<Estudiante>(`${this.baseUrl}/api/v1/Alumno`, estudiante).pipe(
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = '¡Error desconocido!';
+        if (error.error instanceof ErrorEvent) {
+          errorMessage = `Error del lado del cliente: ${error.error.message}`;
+        } else {
+          errorMessage = `Error del lado del servidor: ${error.status} ${error.message}`;
+        }
+        console.error(`Error al registrar estudiante en ${this.baseUrl}/api/v1/Alumno`, errorMessage);
+        return throwError(() => new Error(errorMessage));
+      })
+    );
   }
 }

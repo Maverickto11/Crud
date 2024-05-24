@@ -1,6 +1,5 @@
 export const environment = {
     production: false,
-    url: '/api/v1',
-    urls: '/api/v1/Alumno',
+    url: 'https://crud-backend-lista.onrender.com',
 
 };
