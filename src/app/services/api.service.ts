@@ -26,7 +26,7 @@ export class ApiService {
         } else {
           errorMessage = `Error del lado del servidor: ${error.status} ${error.message}`;
         }
-        console.error(`Error al obtener productos desde ${this.baseUrl}/api/v1`, errorMessage);
+        console.error(`Error al obtener productos desde ${this.baseUrl}/api/v1/Alumno`, errorMessage);
         return throwError(() => new Error(errorMessage));
       })
     );
@@ -46,4 +46,12 @@ export class ApiService {
       })
     );
   }
+
+  editarEstudiante(id: number, estudianteActualizado: Estudiante): Observable<Estudiante> {
+    const url = `${this.baseUrl}/api/v1/${id}`;
+  
+    // Realiza la solicitud PUT al servidor
+    return this.http.put<Estudiante>(url, estudianteActualizado);
+  }
+
 }

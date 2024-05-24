@@ -1,0 +1,36 @@
+/* styles.css */
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    
+}
+
+.card-header {
+    border-bottom: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #1F2937 !important;
+    text-align: center;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}

@@ -1,19 +1,29 @@
-<table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Last</th>
+<!-- student-list.component.html -->
+<div class="container mt-5">
+  <div class="card shadow-lg">
+      <div class="card-header bg-primary text-white">
+          <h2 class="mb-0">Lista de Estudiantes</h2>
+      </div>
+      <div class="card-body">
+          <table class="table table-striped table-hover">
+              <thead class="thead-dark">
+                  <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Apellido</th>
+                      <th scope="col">Correo Electrónico</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let estudiante of estudiantes">
+                      <td>{{estudiante.id}}</td>
+                      <td>{{estudiante.nombre}}</td>
+                      <td>{{estudiante.apellido}}</td>
+                      <td>{{estudiante.email}}</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
 
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let estudiante of estudiantes">
-        <td>{{estudiante.id}}</td>
-        <td>{{estudiante.nombre}}</td>
-        <td>{{estudiante.apellido}}</td>
-        <td>{{estudiante.email}}</td>
-      </tr>
-    </tbody>
-  </table>

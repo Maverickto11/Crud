@@ -1,31 +1,37 @@
 <!-- student-registration.component.html -->
-<div class="container">
-    <h2>Formulario de Registro de Estudiantes</h2>
-    <form class="needs-validation" (ngSubmit)="registrarEstudiante()" novalidate>
-      <div class="form-group">
-        <label>Nombre:</label>
-        <input type="text" [(ngModel)]="nuevoEstudiante.nombre" class="form-control" id="nombre" name="nombre" required>
-        <div class="invalid-feedback">  
-          Por favor ingresa el nombre.
-        </div>
+<div class="container mt-5">
+  <div class="card shadow-lg">
+      <div class="card-header bg-primary text-white">
+          <h2 class="mb-0">Formulario de Registro de Estudiantes</h2>
       </div>
-      <div class="form-group">
-        <label>Apellido:</label>
-        <input type="text" [(ngModel)]="nuevoEstudiante.apellido" class="form-control" id="apellido" name="apellido" required>
-        <div class="invalid-feedback">
-          Por favor ingresa el apellido.
-        </div>
+      <div class="card-body">
+          <form class="needs-validation" (ngSubmit)="registrarEstudiante()" novalidate>
+              <div class="form-group">
+                  <label for="nombre">Nombre:</label>
+                  <input type="text" [(ngModel)]="nuevoEstudiante.nombre" class="form-control" id="nombre" name="nombre" required>
+                  <div class="invalid-feedback">
+                      Por favor ingresa el nombre.
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="apellido">Apellido:</label>
+                  <input type="text" [(ngModel)]="nuevoEstudiante.apellido" class="form-control" id="apellido" name="apellido" required>
+                  <div class="invalid-feedback">
+                      Por favor ingresa el apellido.
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="correo">Correo Electrónico:</label>
+                  <input type="email" class="form-control" id="correo" [(ngModel)]="nuevoEstudiante.email" name="correo" required>
+                  <div class="invalid-feedback">
+                      Por favor ingresa un correo válido.
+                  </div>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-success">Registrar</button>
+            </div>          
+          </form>
       </div>
-      <div class="form-group">
-        <label>Correo Electrónico:</label>
-        <input type="email" class="form-control" id="correo" [(ngModel)]="nuevoEstudiante.email" name="correo" required>
-        <div class="invalid-feedback">
-          Por favor ingresa un correo válido.
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary">Registrar</button>
-    </form>
-    <div>
-      <p>¡Registro exitoso!</p>
-    </div>
+   
+  </div>
 </div>
