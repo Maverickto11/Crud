@@ -13,7 +13,6 @@ export class ListaEstudianteComponent implements OnInit {
   estudiantes: Estudiante[] = []; 
   bsModalRef: BsModalRef;
 
-
     constructor(private estudianteService: EstudianteService, private modalService: BsModalService) {}
 
   ngOnInit(): void {
@@ -25,6 +24,8 @@ export class ListaEstudianteComponent implements OnInit {
       this.estudiantes = data;
     });
   }
+
+
 
   editarEstudiante(estudiante: Estudiante) {
     const initialState = {
