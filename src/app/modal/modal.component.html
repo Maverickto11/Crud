@@ -1,0 +1,39 @@
+
+<div class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50" [class.hidden]="!show" (click)="onClose()">
+    <div class="bg-white rounded-lg shadow-lg p-4 w-full max-w-md" (click)="$event.stopPropagation()">
+      <button class="text-gray-500 hover:text-gray-700 float-right" (click)="onClose()">&#x2715;</button>
+      @if(estudiante){
+      <form class="space-y-4" action="#" (ngSubmit)="onSubmit()">
+        <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre:</label>
+            <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" [(ngModel)]="estudiante.nombre" name="nombre" required>
+          </div>
+
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellido:</label>
+            <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" [(ngModel)]="estudiante.apellido" name="apellido" required>
+          </div>
+          
+        <div>
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ingrese su correo</label>
+            <input type="email" name="email" id="email" [(ngModel)]="estudiante.email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required />
+        </div>
+        
+        <div class="flex justify-between">
+            <div class="flex items-start">
+                <div class="flex items-center h-5">
+                    <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
+                </div>
+                <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+            </div>
+        </div>
+        <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Guardar</button>
+    </form>
+}
+      <div class="mt-2">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+  
+  
