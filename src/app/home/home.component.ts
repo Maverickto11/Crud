@@ -4,19 +4,21 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Estudiante } from '../Estudiante.model';
 import { ModalComponent } from '../modal/modal.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
-  imports: [CommonModule, ModalComponent]
+  imports: [CommonModule, ModalComponent,FormsModule]
 })
 export class HomeComponent implements OnInit {
   estudiantes: Estudiante[] = []; // Aquí almacenaremos los estudiantes recibidos del backend
   showModal: boolean = false;
   estudiante: Estudiante = { id: 1, nombre: '', apellido: '', email: '' };
-
+  estudiantesFiltrados: Estudiante[] = [];
+  terminoBusqueda: string = '';
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
@@ -37,6 +39,7 @@ export class HomeComponent implements OnInit {
     this.api.getProducts().subscribe(
       (data: Estudiante[]) => {
         this.estudiantes = data;
+        this.estudiantesFiltrados = data;
       },
       (error) => {
         console.error('Error al obtener los estudiantes:', error);
@@ -73,5 +76,20 @@ export class HomeComponent implements OnInit {
       );
     }
 
+  }
+
+  filtrarEstudiantes() {
+    if (this.terminoBusqueda.trim() === '') {
+      this.estudiantesFiltrados = this.estudiantes;
+    } else {
+      this.api.buscarEstudiantes(this.terminoBusqueda).subscribe(
+        (data: Estudiante[]) => {
+          this.estudiantesFiltrados = data;
+        },  
+        (error) => {
+          console.error('Error al buscar estudiantes:', error);
+        }
+      );
+    }
   }
 }

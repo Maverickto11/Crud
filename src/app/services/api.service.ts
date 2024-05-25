@@ -56,4 +56,8 @@ export class ApiService {
     const url = `${this.baseUrl}/api/v1/${id}`;
     return this.http.delete<Object>(url);
   }
+
+  buscarEstudiantes(nombre: string): Observable<Estudiante[]> {
+    return this.http.get<Estudiante[]>(`${this.baseUrl}/api/v1/buscar?nombre=${nombre}`);
+  }
 }

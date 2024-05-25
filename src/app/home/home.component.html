@@ -3,8 +3,9 @@
 <!-- student-list.component.html -->
 <div class="container mt-5">
     <div>
-        <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Buscar" readonly>
+        <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Buscar por nombre o apellido" [(ngModel)]="terminoBusqueda" (input)="filtrarEstudiantes()">
     </div>
+
   <div class="card shadow-lg">
       <div class="card-header bg-primary text-white">
           <h2 class="mb-0">Lista de Estudiantes</h2>
@@ -22,7 +23,7 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr *ngFor="let estudiante of estudiantes">
+                  <tr *ngFor="let estudiante of estudiantesFiltrados">
                       <td>{{estudiante.id}}</td>
                       <td>{{estudiante.nombre}}</td>
                       <td>{{estudiante.apellido}}</td>
