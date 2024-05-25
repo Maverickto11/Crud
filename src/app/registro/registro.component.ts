@@ -14,13 +14,17 @@ import { FormsModule, NgForm } from '@angular/forms';
 export class RegistroComponent {
 
   nuevoEstudiante: Estudiante = { id: 0, nombre: '', apellido: '', email: '' };
-
+  registroExitoso = false;
+  
   constructor(private api: ApiService) { }
 
   registrarEstudiante(): void {
     this.api.registrarEstudiante(this.nuevoEstudiante).subscribe(() => {
       console.log('Estudiante registrado correctamente');
-      // Puedes agregar aquí lógica adicional, como mostrar un mensaje de éxito o redirigir a otra página.
+      this.nuevoEstudiante.nombre = '';
+            this.nuevoEstudiante.apellido = '';
+            this.nuevoEstudiante.email = '';
+      this.registroExitoso = true;
     });
   }
 }

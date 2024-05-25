@@ -8,7 +8,7 @@
     border: none;
     border-radius: 10px;
     overflow: hidden;
-    
+
 }
 
 .card-header {
@@ -23,8 +23,10 @@
     margin-bottom: 0;
 }
 
-.table th, .table td {
+.table th,
+.table td {
     vertical-align: middle;
+
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
@@ -33,4 +35,26 @@
 
 .table-hover tbody tr:hover {
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+#btn-eliminar {
+    border: transparent;
+    background-color: transparent;
+    color: #1F2937;
+}
+
+#btn-eliminar:hover {
+    background-color: red;
+    color: white;
+}
+
+#btn-editar {
+    border: transparent;
+    background-color: transparent;
+    color: #1F2937;
+}
+
+#btn-editar:hover {
+    background-color: cornflowerblue;
+    color: white;
 }

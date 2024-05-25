@@ -49,9 +49,11 @@ export class ApiService {
 
   editarEstudiante(id: number, estudianteActualizado: Estudiante): Observable<Estudiante> {
     const url = `${this.baseUrl}/api/v1/${id}`;
-  
-    // Realiza la solicitud PUT al servidor
     return this.http.put<Estudiante>(url, estudianteActualizado);
   }
 
+  eliminarEstudiante(id: number): Observable<Object> {
+    const url = `${this.baseUrl}/api/v1/${id}`;
+    return this.http.delete<Object>(url);
+  }
 }
