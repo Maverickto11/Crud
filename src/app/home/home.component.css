@@ -58,3 +58,9 @@
     background-color: cornflowerblue;
     color: white;
 }
+
+.bg-gray-50 {
+    background-color: #F9FAFB;
+    width: 250px;
+    color: #1F2937;
+}

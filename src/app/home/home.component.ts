@@ -13,7 +13,7 @@ import { ModalComponent } from '../modal/modal.component';
   imports: [CommonModule, ModalComponent]
 })
 export class HomeComponent implements OnInit {
-  estudiantes: any[] = []; // Aquí almacenaremos los estudiantes recibidos del backend
+  estudiantes: Estudiante[] = []; // Aquí almacenaremos los estudiantes recibidos del backend
   showModal: boolean = false;
   estudiante: Estudiante = { id: 1, nombre: '', apellido: '', email: '' };
 
@@ -23,14 +23,19 @@ export class HomeComponent implements OnInit {
     this.obtenerEstudiantes();
 
   }
+
+  
   openModal(estudiante: Estudiante) {
-    this.estudiante = estudiante;
-    this.showModal = true;
+    // Solo muestra el modal si la lista de estudiantes se ha cargado correctamente
+    if (this.estudiantes && this.estudiantes.length > 0) {
+      this.estudiante = estudiante;
+      this.showModal = true;
+    }
   }
 
   obtenerEstudiantes(): void {
     this.api.getProducts().subscribe(
-      (data: any) => {
+      (data: Estudiante[]) => {
         this.estudiantes = data;
       },
       (error) => {

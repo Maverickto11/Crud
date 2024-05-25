@@ -16,6 +16,7 @@ export class ModalComponent {
   @Output() close = new EventEmitter<void>();
   @Output() guardar = new EventEmitter<Estudiante>();
 
+
   constructor(private api: ApiService) { }
   onClose() {
     this.show = false;
@@ -23,6 +24,10 @@ export class ModalComponent {
 
   }
 
+  openModal(estudiante: Estudiante) {
+    this.show = true;
+
+  }
   onSubmit() {
     this.api.editarEstudiante(this.estudiante.id, this.estudiante).subscribe(
       response => {
@@ -30,7 +35,7 @@ export class ModalComponent {
         this.onClose();
         this.guardar.emit(this.estudiante); 
       },
-      error => {
+      error => {  
         console.error('Error al guardar los datos', error);
       }
     );
